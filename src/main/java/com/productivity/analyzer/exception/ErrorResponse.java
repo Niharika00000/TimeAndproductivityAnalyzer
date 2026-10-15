@@ -1,0 +1,10 @@
+package com.productivity.analyzer.exception;
+
+import java.time.LocalDateTime;
+import java.util.Map;
+
+public record ErrorResponse(LocalDateTime timestamp, int status, String message, Map<String, String> errors) {
+    public static ErrorResponse of(int status, String message) {
+        return new ErrorResponse(LocalDateTime.now(), status, message, null);
+    }
+}
